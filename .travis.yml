@@ -1,0 +1,26 @@
+language: python
+python:
+    - "2.7"
+# Comandos para instalar las dependencias
+install:
+    - pip install pep8
+    - pip install radon
+    - pip install mockito
+    - pip install pytest pytest-cov
+    - pip install coveralls
+# Comando para ejecutar los test
+sscript:
+    - py.test --cov . --cov-report term-missing
+after_success:
+    - pep8 --statistics -qq ./src
+    - pep8 --statistics -qq ./test
+    - coveralls
+    - radon raw ./src/.
+    - radon raw ./test/.
+    - radon cc ./src/.
+    - radon cc ./test/.
+    - radon mi ./src/.
+    - radon mi ./test/.
+notifications:
+  email:
+    - mamisho.mamisho@gmail.com
