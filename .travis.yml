@@ -13,7 +13,7 @@ install:
     - pip install radon
     - pip install pep8
     - pip install mockito
-# command to run tests
+# Comandos para ejecutar los test
 script:
     - py.test --cov . --cov-report term-missing
 after_success:
