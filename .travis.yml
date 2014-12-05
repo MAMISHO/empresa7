@@ -9,8 +9,8 @@ install:
     - pip install pytest pytest-cov
     - pip install coveralls
 # Comando para ejecutar los test
-sscript:
-    - py.test --cov . --cov-report term-missing
+#sscript:
+#    - py.test --cov . --cov-report term-missing
 after_success:
     - pep8 --statistics -qq ./src
     - pep8 --statistics -qq ./test
